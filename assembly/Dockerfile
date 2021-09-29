@@ -5,4 +5,4 @@ RUN apt update && apt install default-jdk git maven -y
 # && mvn -q -f /tmp/hello package
 VOLUME [ "/source" ]
 CMD ["git", "clone", "https://github.com/boxfuse/boxfuse-sample-java-war-hello.git", \
-    "/source", "&&", "mvn", "-q", "-f", "/source", "package"]
+    "/source", ";", "mvn", "-q", "-f", "/source", "package"]
