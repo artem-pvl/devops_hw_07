@@ -6,11 +6,16 @@ services:
     build: ./assembly
     image: assembly
     volumes:
-      - ./source:/source
-      - ./war:/war
+      - artifact:/source/target
 
   prod:
     build: ./prod
     image: prod
+    ports:
+      - 50:8080
     volumes:
-      - ./war:/var/lib/tomcat9/webapps/
+      - artifact:/var/lib/tomcat9/webapps
+
+volumes:
+  artifact:
+---
