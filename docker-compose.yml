@@ -1,0 +1,16 @@
+---
+version: "3.9"
+services:
+
+  assembly:
+    build: ./assembly
+    image: assembly
+    volumes:
+      - ./source:/source
+      - ./war:/war
+
+  prod:
+    build: ./prod
+    image: prod
+    volumes:
+      - ./war:/var/lib/tomcat9/webapps/
